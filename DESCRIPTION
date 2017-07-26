@@ -1,0 +1,22 @@
+Package: tropical
+Type: Package
+Title: Tropical Geometry in R
+Version: 0.0.0.900
+Authors@R: c(person("Peixin", "Gao", email = "Peixin_Gao@baylor.edu", role = c("aut", "cph")),
+  person("Grant", "Innerst", email = "Grant_Innerst@baylor.edu", role = c("aut", "cph")),
+  person("David", "Kahle", email = "david.kahle@gmail.com", role = c("aut", "cph", "cre")),
+  person("Dohyun", "Kim", email = "Dohyun_Kim@baylor.edu", role = c("aut", "cph")),
+  person("Ruriko", "Yoshida", email = "ryoshida@nps.edu", role = c("aut", "cph")),
+  person("Xu", "Zhang", email = "xzh323@g.uky.edu", role = c("aut", "cph")))
+Maintainer: David Kahle <david.kahle@gmail.com>
+Description: Tropical Geometry in R
+License: GPL-2
+LazyData: TRUE
+Depends:
+    m2r,
+    mpoly (>= 1.0.5)
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat
+RoxygenNote: 6.0.1
