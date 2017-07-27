@@ -5,17 +5,26 @@
 #' @param x x
 #' @param y y
 #' @return .
-#' @export
+#' @name tarithmetic
 #' @examples
 #'
 #' m2("13^1000")
 #'
-#'
-print.m2 <- function(x, ...){
 
-  ## argument checking and basic variable setting
-  stopifnot(is.m2(x))
 
-  ## print
-  sapply(as.list(x), print)
+
+#' @rdname tarithmetic
+#' @export
+`%+%` <- function(x, y) pmax(x, y)
+
+
+
+#' @rdname tarithmetic
+#' @export
+`%.%` <- function(x, y) {
+  if(is.vector(x) && is.vector(y)) return(x + y)
+
+
 }
+
+
