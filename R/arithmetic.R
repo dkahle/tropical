@@ -8,19 +8,61 @@
 #' @name tarithmetic
 #' @examples
 #'
+#' ## basic usage - trop. add.
+#' ##############################
+#'
 #' get_plus_type()
 #'
 #' 1 %+% 5
 #' 1:3 %+% 3:1
+#' (m1 <- matrix(1:4, 2))
+#' (m2 <- matrix(4:1, 2))
+#' m1 %+% m2
 #'
 #' set_plus_max()
 #' get_plus_type()
 #'
 #' 1 %+% 5
 #' 1:3 %+% 3:1
+#' m1 %+% m2
 #'
 #' set_plus_min()
 #' get_plus_type()
+#'
+#'
+#'
+#' ## basic usage - trop. mult.
+#' ##############################
+#'
+#' 1 %.% 5
+#' 1:3 %.% 5:7
+#' (m1 <- matrix(1:4, 2))
+#' (m2 <- matrix(4:1, 2))
+#' m1 %.% m2
+#'
+#'
+#'
+#' ## basic usage - trop. mat. mult.
+#' ##############################
+#'
+#' 1:3 %..% 5:7
+#' (m1 <- matrix(1:4, 2))
+#' (m2 <- matrix(4:1, 2))
+#' m1 %..% m2
+#'
+#' (m1 <- matrix(1:6, 2, 3))
+#' (m2 <- matrix(6:1, 3, 2))
+#' m1 %..% m2
+#'
+#' set_plus_max()
+#' m1 %..% m2
+#'
+#'
+#' ## basic usage - trop. exp.
+#' ##############################
+#' 5 %^% 3
+#' (1:3) %^% (4:6)
+#'
 #'
 
 
@@ -41,11 +83,44 @@
 
 #' @rdname tarithmetic
 #' @export
-`%.%` <- function(x, y) {
-  if(is.vector(x) && is.vector(y)) return(x + y)
+`%.%` <- function(x, y) x + y
 
 
+
+#' @rdname tarithmetic
+#' @export
+`%..%` <- function(x, y) {
+
+  # define tropical inner product (vectors)
+  if(is.vector(x) && is.vector(y)) {
+    if(get_plus_type() == "min") {
+      return( min(x %.% y) )
+    } else {
+      return( max(x %.% y) )
+    }
+  }
+
+  # do matrix multiplication
+  m <- nrow(x)
+  n <- ncol(y)
+  mat <- matrix(0L, nrow = m, ncol = n)
+  for(i in 1:m) {
+    for(j in 1:n) {
+      mat[i,j] <- x[i,] %..% y[,j]
+    }
+  }
+
+  # return
+  mat
 }
+
+
+
+
+#' @rdname tarithmetic
+#' @export
+`%^%` <- function(x, y) y*x
+
 
 
 

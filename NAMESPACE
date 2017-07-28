@@ -2,6 +2,8 @@
 
 export("%+%")
 export("%.%")
+export("%..%")
+export("%^%")
 export(get_plus_type)
 export(set_plus_max)
 export(set_plus_min)

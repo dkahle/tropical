@@ -4,6 +4,8 @@
 \alias{tarithmetic}
 \alias{\%+\%}
 \alias{\%.\%}
+\alias{\%..\%}
+\alias{\%^\%}
 \alias{set_plus_min}
 \alias{set_plus_max}
 \alias{get_plus_type}
@@ -12,6 +14,10 @@
 x \%+\% y
 
 x \%.\% y
+
+x \%..\% y
+
+x \%^\% y
 
 set_plus_min(message = TRUE)
 
@@ -32,18 +38,60 @@ Tropical arithmetic
 }
 \examples{
 
+## basic usage - trop. add.
+##############################
+
 get_plus_type()
 
 1 \%+\% 5
 1:3 \%+\% 3:1
+(m1 <- matrix(1:4, 2))
+(m2 <- matrix(4:1, 2))
+m1 \%+\% m2
 
 set_plus_max()
 get_plus_type()
 
 1 \%+\% 5
 1:3 \%+\% 3:1
+m1 \%+\% m2
 
 set_plus_min()
 get_plus_type()
+
+
+
+## basic usage - trop. mult.
+##############################
+
+1 \%.\% 5
+1:3 \%.\% 5:7
+(m1 <- matrix(1:4, 2))
+(m2 <- matrix(4:1, 2))
+m1 \%.\% m2
+
+
+
+## basic usage - trop. mat. mult.
+##############################
+
+1:3 \%..\% 5:7
+(m1 <- matrix(1:4, 2))
+(m2 <- matrix(4:1, 2))
+m1 \%..\% m2
+
+(m1 <- matrix(1:6, 2, 3))
+(m2 <- matrix(6:1, 3, 2))
+m1 \%..\% m2
+
+set_plus_max()
+m1 \%..\% m2
+
+
+## basic usage - trop. exp.
+##############################
+5 \%^\% 3
+(1:3) \%^\% (4:6)
+
 
 }
