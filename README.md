@@ -18,7 +18,7 @@ See the bottom of this page for how to install **tropical**.
 Basic usage
 -----------
 
-In tropical geometry, the ordinary operations of addition and multiplication are changed: the sum of two numbers is the minimum of those numbers, and the product of two numbers is their (classical) sum. To reflect this change, the ordinary plus sign +, representing classical addition, is changed to ⊕, and ordinary multiplication symbols, × or $\\dot$, are changed to ⊙. As an example, 1 ⊕ 5 = 1, and 1 ⊙ 5 = 6. Together, the set (ℝ ∪ ∞, ⊕, ⊙) forms the [algebraic structure](https://en.wikipedia.org/wiki/Algebraic_structure) of a semiring satisfying all ring, and even field, definitions except having additive inverses.
+In tropical geometry, the ordinary operations of addition and multiplication are changed: the sum of two numbers is the minimum of those numbers, and the product of two numbers is their (classical) sum. To reflect this change, the ordinary plus sign +, representing classical addition, is changed to ⊕, and ordinary multiplication symbols, × or ⋅, are changed to ⊙. As an example, 1 ⊕ 5 = 1, and 1 ⊙ 5 = 6. Together, the set (ℝ ∪ ∞, ⊕, ⊙) forms the [algebraic structure](https://en.wikipedia.org/wiki/Algebraic_structure) of a semiring satisfying all ring, and even field, definitions except having additive inverses.
 
 **tropical** implements ⊕ as `%+%` and ⊙ as `%.%`. For example:
 
