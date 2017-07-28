@@ -6,7 +6,12 @@
 Overview
 --------
 
-**tropical** is a new R package that provides users with method and data structures for [tropical geometry in R](https://en.wikipedia.org/wiki/Tropical_geometry).
+**tropical** is a new R package that provides users with methods and data structures for [tropical geometry in R](https://en.wikipedia.org/wiki/Tropical_geometry).
+
+Basic usage
+-----------
+
+⊕ ⊙
 
 Acknowledgements
 ----------------

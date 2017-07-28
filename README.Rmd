@@ -24,9 +24,14 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-__tropical__ is a new R package that provides users with method and data structures for [tropical geometry in R](https://en.wikipedia.org/wiki/Tropical_geometry).
+__tropical__ is a new R package that provides users with methods and data structures for [tropical geometry in R](https://en.wikipedia.org/wiki/Tropical_geometry).
 
 
+
+
+## Basic usage
+
+$\oplus$ $\odot$
 
 
 
