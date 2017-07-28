@@ -47,7 +47,7 @@ Exponentiation is also defined as iterated multiplication (⊕), but only when n
 
 This operation is vectorized, too.
 
-Matrix multiplication is also defined through inner products of vectors. For two vectors **x** and **y** of the same length, their inner product is **x**′**y** = ⨁*x*<sub>*k*</sub> ⊙ *y*<sub>*k*</sub> = min{*x*<sub>*k*</sub> + *y*<sub>*k*</sub>}. In **tropical**, this is given by `%..%` (which is the tropical analogue of R's ordinary matrix multiplication operator `%*%`):
+Matrix multiplication is also defined through inner products of vectors. For two vectors **x** and **y** of the same length, their inner product is **x**′**y** = ⨁(*x*<sub>*k*</sub> ⊙ *y*<sub>*k*</sub>)=min{*x*<sub>*k*</sub> + *y*<sub>*k*</sub>}. In **tropical**, this is given by `%..%` (which is the tropical analogue of R's ordinary matrix multiplication operator `%*%`):
 
 ``` r
 1:3 %..% 4:6

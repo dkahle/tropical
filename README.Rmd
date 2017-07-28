@@ -51,7 +51,7 @@ Exponentiation is also defined as iterated multiplication ($\oplus$), but only w
 ```
 This operation is vectorized, too.
 
-Matrix multiplication is also defined through inner products of vectors.  For two vectors $\textbf{x}$ and $\textbf{y}$ of the same length, their inner product is $\textbf{x}'\textbf{y} = \bigoplus x_{k} \odot y_{k} = \min\{x_{k}+y_{k}\}$.  In __tropical__, this is given by `%..%` (which is the tropical analogue of R's ordinary matrix multiplication operator `%*%`):
+Matrix multiplication is also defined through inner products of vectors.  For two vectors $\textbf{x}$ and $\textbf{y}$ of the same length, their inner product is $\textbf{x}'\textbf{y} = \bigoplus (x_{k} \odot y_{k}) = \min\{x_{k}+y_{k}\}$.  In __tropical__, this is given by `%..%` (which is the tropical analogue of R's ordinary matrix multiplication operator `%*%`):
 ```{r inner-product}
 1:3 %..% 4:6
 ```
