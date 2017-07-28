@@ -62,7 +62,8 @@
 #' ##############################
 #' 5 %^% 3
 #' (1:3) %^% (4:6)
-#'
+#' # 5 %^% 0   # for unit test
+#' # 5 %^% 2.5 # for unit test
 #'
 
 
@@ -119,7 +120,11 @@
 
 #' @rdname tarithmetic
 #' @export
-`%^%` <- function(x, y) y*x
+`%^%` <- function(x, y) {
+  if(any(abs(y - round(y)) > 1e-10)) stop("tropical exponentiation demands natural number exponents.", call. = FALSE)
+  if(!all(y > 0)) stop("tropical exponentiation demands natural number exponents", call. = FALSE)
+  y*x
+}
 
 
 
