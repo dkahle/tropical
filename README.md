@@ -47,14 +47,14 @@ Exponentiation is also defined as iterated multiplication (⊕), but only when n
 
 This operation is vectorized, too.
 
-Matrix multiplication is also defined through inner products of vectors. For two vectors **x** and **y** of the same length, their inner product is $\\textbf{x}'\\textbf{y} = \\bigoplus\_{k=1}^{n} x\_{k} \\odot y\_{k} = \\min\_{k = 1,\\ldots,n}\\{x\_{k}+y\_{k}\\}$. In **tropical**, this is given by `%..%` (which is the tropical analogue of R's ordinary matrix multiplication operator `%*%`):
+Matrix multiplication is also defined through inner products of vectors. For two vectors **x** and **y** of the same length, their inner product is ⨁ $\\textbf{x}'\\textbf{y} = \\bigoplus\_{k=1}^{n} x\_{k} \\odot y\_{k} = \\min\_{k = 1,\\ldots,n}\\{x\_{k}+y\_{k}\\}$. In **tropical**, this is given by `%..%` (which is the tropical analogue of R's ordinary matrix multiplication operator `%*%`):
 
 ``` r
 1:3 %..% 4:6
 # [1] 5
 ```
 
-This is min{1 + 4, 2 + 5, 3 + 6}=5. From there, matrix multiplication is defined in the standard way, so that for two matrices **A** and **B**, their product **C** = **A****B** has elements *c*<sub>*i*, *j*</sub> = **a**<sub>*i*</sub>′**b**<sub>*j*</sub>, where **a**<sub>*i*</sub> is the *i*th row of **A** and **b**<sub>*j*</sub> is the *j*th column of **B**. Example:
+This is min{1 + 4, 2 + 5, 3 + 6}=5. From there, matrix multiplication is defined in the standard way, so that for two matrices **A** and **B**, their product **C** = **AB** has elements *c*<sub>*i*, *j*</sub> = **a**<sub>*i*</sub>′**b**<sub>*j*</sub>, where **a**<sub>*i*</sub> is the *i*th row of **A** and **b**<sub>*j*</sub> is the *j*th column of **B**. Example:
 
 ``` r
 (m1 <- matrix(1:6, 2, 3))

@@ -51,11 +51,11 @@ Exponentiation is also defined as iterated multiplication ($\oplus$), but only w
 ```
 This operation is vectorized, too.
 
-Matrix multiplication is also defined through inner products of vectors.  For two vectors $\textbf{x}$ and $\textbf{y}$ of the same length, their inner product is $\textbf{x}'\textbf{y} = \bigoplus_{k=1}^{n} x_{k} \odot y_{k} = \min_{k = 1,\ldots,n}\{x_{k}+y_{k}\}$.  In __tropical__, this is given by `%..%` (which is the tropical analogue of R's ordinary matrix multiplication operator `%*%`):
+Matrix multiplication is also defined through inner products of vectors.  For two vectors $\textbf{x}$ and $\textbf{y}$ of the same length, their inner product is $\bigoplus$ $\textbf{x}'\textbf{y} = \bigoplus_{k=1}^{n} x_{k} \odot y_{k} = \min_{k = 1,\ldots,n}\{x_{k}+y_{k}\}$.  In __tropical__, this is given by `%..%` (which is the tropical analogue of R's ordinary matrix multiplication operator `%*%`):
 ```{r inner-product}
 1:3 %..% 4:6
 ```
-This is $\min \{1+4, 2+5, 3+6 \} = 5$.  From there, matrix multiplication is defined in the standard way, so that for two matrices $\textbf{A}$ and $\textbf{B}$, their product $\textbf{C} = \textbf{A} \textbf{B}$ has elements $c_{i,j} = \textbf{a}_{i}'\textbf{b}_{j}$, where $\textbf{a}_{i}$ is the $i$th row of $\textbf{A}$ and $\textbf{b}_{j}$ is the $j$th column of $\textbf{B}$. Example:
+This is $\min \{1+4, 2+5, 3+6 \} = 5$.  From there, matrix multiplication is defined in the standard way, so that for two matrices $\textbf{A}$ and $\textbf{B}$, their product $\textbf{C} = \textbf{AB}$ has elements $c_{i,j} = \textbf{a}_{i}'\textbf{b}_{j}$, where $\textbf{a}_{i}$ is the $i$th row of $\textbf{A}$ and $\textbf{b}_{j}$ is the $j$th column of $\textbf{B}$. Example:
 ```{r matrix-mult}
 (m1 <- matrix(1:6, 2, 3))
 (m2 <- matrix(6:1, 3, 2))
