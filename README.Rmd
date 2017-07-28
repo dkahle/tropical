@@ -24,15 +24,54 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-__tropical__ is a new R package that provides users with methods and data structures for [tropical geometry in R](https://en.wikipedia.org/wiki/Tropical_geometry).
-
-
+__tropical__ is a new R package that provides users with methods and data structures for [tropical geometry in R](https://en.wikipedia.org/wiki/Tropical_geometry).  Inside R, you load the package with 
+```{r load}
+library(tropical)
+```
+See the bottom of this page for how to install __tropical__.
 
 
 ## Basic usage
 
-$\oplus$ $\odot$
+In tropical geometry, the ordinary operations of addition and multiplication are changed: the sum of two numbers is the minimum of those numbers, and the product of two numbers is their (classical) sum.  To reflect this change, the ordinary plus sign $+$, representing classical addition, is changed to $\oplus$, and ordinary multiplication symbols, $\times$ or $\dot$, are changed to $\odot$.  As an example, $1 \oplus 5 = 1$, and $1 \odot 5 = 6$.  Together, the set $(\mathbb{R} \cup \infty, \oplus, \odot)$ forms the [algebraic structure](https://en.wikipedia.org/wiki/Algebraic_structure) of a semiring satisfying all ring, and even field, definitions except having additive inverses.
 
+__tropical__ implements $\oplus$ as `%+%` and $\odot$ as `%.%`.  For example:
+```{r plus-and-times}
+1 %+% 5
+1 %.% 5
+```
+As in base R, these operations are vectorized:
+```{r plus-and-times-vectorized}
+1:3 %+% 3:1
+1:3 %.% 3:1
+```
+Exponentiation is also defined as iterated multiplication ($\oplus$), but only when natural number exponents are given, so that $5^{3}$ (sometimes written $5^{\odot 3}$) is $5^{3} = 5 \odot 5 \odot 5 = 5 + 5 + 5 = 3 \times 5 = 15$.  Example:
+```{r exponentiation}
+5 %^% 3
+```
+This operation is vectorized, too.
+
+Matrix multiplication is also defined through inner products of vectors.  For two vectors $\textbf{x}$ and $\textbf{y}$ of the same length, their inner product is $\textbf{x}'\textbf{y} = \bigoplus_{k=1}^{n}x_{k} \odot y_{k} = \min_{k = 1,\ldots,n}\{x_{k}+y_{k}\}$.  In __tropical__, this is given by `%..%` (which is the tropical analogue of R's ordinary matrix multiplication operator `%*%`):
+```{r inner-product}
+1:3 %..% 4:6
+```
+This is $\min \{1+4, 2+5, 3+6 \} = 5$.  From there, matrix multiplication is defined in the standard way, so that for two matrices $\textbf{A}$ and $\textbf{B}$, their product $\textbf{C} = \textbf{A}\textbf{B}$ has elements $c_{i,j} = \textbf{a}_{i}'\textbf{b}_{j}$, where $\textbf{a}_{i}$ is the $i$th row of $\textbf{A}$ and $\textbf{b}_{j}$ is the $j$th column of $\textbf{B}$. Example:
+```{r matrix-mult}
+(m1 <- matrix(1:6, 2, 3))
+(m2 <- matrix(6:1, 3, 2))
+m1 %..% m2
+```
+
+Sometimes tropical arithmetic is defined with $\oplus$ interpreted as the maximum of the two numbers, not the minimum.  To change __tropical__'s default setting, just type:
+```{r set-plus-max}
+set_plus_max()
+1:3 %+% 3:1
+```
+Once you use this function, all operations will have the appropriate corresponding changes. You can change it back with 
+```{r set-plus-min}
+set_plus_max()
+1:3 %+% 3:1
+```
 
 
 ## Acknowledgements
