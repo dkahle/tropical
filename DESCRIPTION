@@ -10,12 +10,9 @@ Authors@R: c(person("Peixin", "Gao", email = "Peixin_Gao@baylor.edu", role = c("
   person("Leon", "Zhang", email = "leonyz@berkeley.edu", role = c("aut", "cph")),
   person("Xu", "Zhang", email = "xzh323@g.uky.edu", role = c("aut", "cph")))
 Maintainer: David Kahle <david.kahle@gmail.com>
-Description: Tropical Geometry in R
+Description: Tools for tropical geometry.
 License: GPL-2
 LazyData: TRUE
-Depends:
-    m2r,
-    mpoly (>= 1.0.5)
 Suggests:
     knitr,
     rmarkdown,
