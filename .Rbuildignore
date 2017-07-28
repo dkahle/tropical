@@ -1,2 +1,10 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^.*\.png$
+^README.Rmd$
+figures/
+.Rhistory
+.gitignore
+.Rproj.user
+.git
+old/
