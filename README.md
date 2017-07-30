@@ -90,6 +90,11 @@ set_plus_min()
 # [1] 1 2 1
 ```
 
+Feature requests and contributing
+---------------------------------
+
+To request the implementation of a feature, file an issue! Click "Issues" at the top of this page, then "New issue", and have at it. If you're especially courageous, fork the project, implement your own tropical geometry methods, and submit a pull request. If you'd like to contribute but don't know how, please [email us](mail:david.kahle@gmail.com).
+
 Acknowledgements
 ----------------
 
