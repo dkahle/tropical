@@ -84,10 +84,10 @@ set_plus_max()
 Once you use this function, all operations will have the appropriate corresponding changes. You can change it back with
 
 ``` r
-set_plus_max()
-# Using max-plus algebra.
+set_plus_min()
+# Using min-plus algebra.
 1:3 %+% 3:1
-# [1] 3 2 3
+# [1] 1 2 1
 ```
 
 Acknowledgements
